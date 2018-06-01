@@ -1,0 +1,75 @@
+#Installation of pyethereum:
+$ sudo apt-get install pyethereum
+$ git clone https://github.com/ebuchman/pyethereum
+$ cd pyethereum
+$ sudo pip install -r requirements.txt
+$ sudo python setup.py install
+$ cd ..
+
+#Installation of serpent:
+$ sudo apt-get install serpent
+$ git clone https://github.com/ethereum/serpent
+$ cd serpent
+$ make && sudo make install
+$ sudo python setup.py install
+$ cd ..
+
+#Installation of ipython:
+
+$ pip install ipython
+
+#Install and register an IPython kernel with Jupyter:
+
+$ python -m pip install ipykernel
+
+#Install Virtualenv:
+
+$ pip install virtualenv
+
+#Create an Environment with virtualenv
+
+$ virtualenv my_blog_environment
+
+#The next step is to activate your virtual environment:
+
+$ cd my_blog_environment/
+$ source bin/activate
+
+#The next step is to install some packages and use our environment.
+$ pip install Django==1.0
+
+#Install pyethapp in vitualenv directory
+
+$ apt-get install build-essential automake pkg-config libtool libffi-dev libgmp-dev
+$ pip install pyethapp
+$ git clone https://github.com/ethereum/pyethapp
+$ cd pyethapp
+$ USE_PYETHEREUM_DEVELOP=1 python setup.py develop
+$ pyethapp
+$ pyethapp run
+
+while running i am getting error 
+Traceback (most recent call last):
+  File "/usr/local/bin/pyethapp", line 7, in <module>
+    from pyethapp.app import app
+  File "/usr/local/lib/python2.7/dist-packages/pyethapp/app.py", line 19, in <module>
+    from ethereum import blocks
+ImportError: cannot import name blocks.
+
+After that i tried
+$ docker build -t pyethapp:devtest .
+$ docker run -it --entrypoint /bin/bash pyethapp:devtest
+For thin command i got error
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+
+$ pyethapp --profile morden run
+
+Traceback (most recent call last):
+  File "/usr/local/bin/pyethapp", line 7, in <module>
+    from pyethapp.app import app
+  File "/usr/local/lib/python2.7/dist-packages/pyethapp/app.py", line 19, in <module>
+    from ethereum import blocks
+ImportError: cannot import name blocks
+
+
